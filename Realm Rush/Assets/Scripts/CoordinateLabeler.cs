@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEditor;
 
-
 [ExecuteAlways]
 public class CoordinateLabeler : MonoBehaviour
 {
