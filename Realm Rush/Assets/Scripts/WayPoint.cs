@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
-    
+    [SerializeField] bool isPlayAble;
+
+    private void OnMouseDown()
+    {
+        if (!isPlayAble) { return; }
+        Debug.Log(transform.name);
+    }
 }
