@@ -15,7 +15,7 @@ public class EnemyMover : MonoBehaviour
     IEnumerator FollowPath()
     {
         foreach (WayPoint wayPoint in path)
-        {         
+        {
             Vector3 startPosition = transform.position;
             Vector3 endPosition = wayPoint.transform.position;
             float travelPercent = 0f;

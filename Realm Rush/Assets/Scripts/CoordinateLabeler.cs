@@ -7,18 +7,19 @@ using UnityEditor;
 [ExecuteAlways]
 public class CoordinateLabeler : MonoBehaviour
 {
+    [SerializeField] Color defaulColor = Color.white;
+    [SerializeField] Color blockColor = Color.gray;
+
     Vector2Int coordinates;
-    TextMeshPro textMeshPro;
+    TextMeshPro label;
+    WayPoint wayPoint;
 
     private void Awake()
     {
-        textMeshPro = GetComponent<TextMeshPro>();
-    }
-
-    private void Start()
-    {
+        label = GetComponent<TextMeshPro>();
+        wayPoint = GetComponentInParent<WayPoint>();
+        label.enabled = false;
         DisplayCoordinate();
-        UpdateObjectName();
     }
 
     private void Update()
@@ -26,6 +27,23 @@ public class CoordinateLabeler : MonoBehaviour
         if (!Application.isPlaying)
         {
             DisplayCoordinate();
+            UpdateObjectName();
+        }
+        ColorCoordinates();
+        ToggleCoordinates();
+    }
+
+    void ColorCoordinates()
+    {
+        if (wayPoint.IsplayAble) { label.color = defaulColor; }
+        else { label.color = blockColor; }       
+    }
+
+    void ToggleCoordinates()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            label.enabled = !label.IsActive();
         }
     }
 
@@ -33,11 +51,11 @@ public class CoordinateLabeler : MonoBehaviour
     {
         coordinates.x = Mathf.RoundToInt(transform.parent.position.x / EditorSnapSettings.gridSize.x);
         coordinates.y = Mathf.RoundToInt(transform.parent.position.z / EditorSnapSettings.gridSize.z);
-        textMeshPro.text = coordinates.ToString();
+        label.text = coordinates.ToString();
     }
 
     void UpdateObjectName()
     {
-        transform.parent.name = textMeshPro.text;
+        transform.parent.name = label.text;
     }
 }
