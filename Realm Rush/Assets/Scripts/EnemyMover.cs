@@ -4,12 +4,29 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] List<WayPoint> path = new List<WayPoint>();
+    List<WayPoint> path = new List<WayPoint>();
     [SerializeField] [Range(0,5)] float moveSpeed;
 
-    private void Start()
+    private void OnEnable()
     {
+        FindPath();
+        ReturnToStartPos();
         StartCoroutine(FollowPath());
+    }
+
+    void FindPath()
+    {
+        path.Clear();
+        GameObject pathParent = GameObject.FindGameObjectWithTag("Path");
+        foreach(Transform child in pathParent.transform)
+        {
+            path.Add(child.GetComponent<WayPoint>());
+        }
+    }
+
+    void ReturnToStartPos()
+    {
+        transform.position = path[0].transform.position;
     }
 
     IEnumerator FollowPath()
@@ -28,5 +45,6 @@ public class EnemyMover : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }       
         }
+        this.gameObject.SetActive(false);
     }
 }
