@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -9147243047946575410}
   - component: {fileID: 2088504212832053156}
   - component: {fileID: 4249029957964833448}
+  - component: {fileID: 2935893105399738444}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Path
@@ -68,7 +69,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f02f59478c72c4581f671796ba29a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: []
   moveSpeed: 1
 --- !u!114 &4249029957964833448
 MonoBehaviour:
@@ -83,6 +83,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoint: 5
+--- !u!114 &2935893105399738444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160473870462103312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da8daa3f025f9743b88e8a2f5bf7125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyGold: 25
+  stealGold: 50
 --- !u!1001 &4015668054024735029
 PrefabInstance:
   m_ObjectHideFlags: 0

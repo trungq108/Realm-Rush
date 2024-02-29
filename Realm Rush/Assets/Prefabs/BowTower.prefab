@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2758472265004950045}
   - component: {fileID: 7844466102762231933}
+  - component: {fileID: 2583582547227336302}
   m_Layer: 0
   m_Name: BowTower
   m_TagString: Untagged
@@ -80,6 +81,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 3217540165090493546}
+  projectTile: {fileID: 2985977116066182224}
+  towerRange: 15
+--- !u!114 &2583582547227336302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344400387803107101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523c693b0dec0c54eaa74ebb26612927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerCost: 75
 --- !u!1 &4092711346585743842
 GameObject:
   m_ObjectHideFlags: 0

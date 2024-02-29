@@ -5,6 +5,7 @@ using TMPro;
 using UnityEditor;
 
 [ExecuteAlways]
+[RequireComponent(typeof(TextMeshPro))]
 public class CoordinateLabeler : MonoBehaviour
 {
     [SerializeField] Color defaulColor = Color.white;
@@ -29,11 +30,11 @@ public class CoordinateLabeler : MonoBehaviour
             DisplayCoordinate();
             UpdateObjectName();
         }
-        ColorCoordinates();
+        LabelTextColor();
         ToggleCoordinates();
     }
 
-    void ColorCoordinates()
+    void LabelTextColor()
     {
         if (wayPoint.IsplayAble) { label.color = defaulColor; }
         else { label.color = blockColor; }       

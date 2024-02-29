@@ -122,6 +122,10 @@ PrefabInstance:
       propertyPath: isPlayAble
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8141620798486750705, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
+      propertyPath: isPlaceAble
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2411251710568093945, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
