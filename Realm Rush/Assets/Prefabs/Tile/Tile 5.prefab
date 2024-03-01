@@ -74,6 +74,30 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -4851001423541414395, guid: 676666308f0efec47a8f10083d3cb71e, type: 3}
+    - target: {fileID: 3638129190421950925, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
+      propertyPath: m_Size.y
+      value: 4.6563935
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638129190421950925, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
+      propertyPath: m_Center.y
+      value: 2.3281968
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235273112086531159, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235273112086531159, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.427451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235273112086531159, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.427451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235273112086531159, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.427451
+      objectReference: {fileID: 0}
     - target: {fileID: 6840274264493238834, guid: 24913a94cddc32a4db3e2b51f5bcff67, type: 3}
       propertyPath: m_Name
       value: Tile 5
