@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -268,14 +268,14 @@ MonoBehaviour:
     y: 402
     width: 531
     height: 545
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -782,9 +782,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 28.784096, y: 4.635686, z: 16.610182}
+    m_Target: {x: 22.880709, y: 4.535134, z: 16.183172}
     speed: 2
-    m_Value: {x: 28.784096, y: 4.635686, z: 16.610182}
+    m_Value: {x: 22.880709, y: 4.535134, z: 16.183172}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -830,13 +830,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.5620406, y: -0.017365523, z: 0.01180506, w: 0.8268412}
+    m_Target: {x: 0.56711394, y: 0.0024716002, z: -0.0017008806, w: 0.8236318}
     speed: 2
-    m_Value: {x: 0.5620415, y: -0.017365549, z: 0.011805079, w: 0.8268424}
+    m_Value: {x: 0.5658788, y: 0.002474153, z: -0.0016971743, w: 0.824483}
   m_Size:
-    m_Target: 21.886885
+    m_Target: 21.79833
     speed: 2
-    m_Value: 21.886885
+    m_Value: 21.79833
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -900,7 +900,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 565c0000
       m_LastClickedID: 23638
-      m_ExpandedIDs: 64e0ffff76e3ffffc4e3ffffaee7fffff8e8ffffd8f6ffff30fbffffb65e0000
+      m_ExpandedIDs: d6f5ffff30fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -969,7 +969,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Tile
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Prefabs/Tile
+  - Assets/Scripts
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\Unity\Project\Realm-Rush\Realm Rush
   m_LockTracker:
@@ -986,7 +986,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 62620000
     m_LastClickedID: 25186
-    m_ExpandedIDs: 00000000406200005a62000000ca9a3b
+    m_ExpandedIDs: 00000000406200005e62000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1039,8 +1039,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 565c0000
-    m_LastClickedInstanceID: 23638
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000c66a0000c668000038710000e270000018710000c6710000bc700000862900006a2b0000a6280000922800002a2900005a2b0000442800007c2800004a2b000000000000
     m_RenameOverlay:
@@ -1066,7 +1066,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 44}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 155
