@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2604154457579638218, guid: 8b0a6287c550e1246a1e7a4b9bfafe6f, type: 3}
       propertyPath: m_Name
-      value: Tile_7 Variant 3
+      value: Tile 7 Variant 3
       objectReference: {fileID: 0}
     - target: {fileID: 3671479972791670542, guid: 8b0a6287c550e1246a1e7a4b9bfafe6f, type: 3}
       propertyPath: m_LocalRotation.w

@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 352538013567964000, guid: 524be05178dcad9458aff19044e20fdd, type: 3}
       propertyPath: m_Name
-      value: Tile_2 Variant 2
+      value: Tile 2 Variant 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329977680481012158, guid: 524be05178dcad9458aff19044e20fdd, type: 3}
+      propertyPath: isPlaceAble
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4547303536025559993, guid: 524be05178dcad9458aff19044e20fdd, type: 3}
       propertyPath: m_LocalPosition.x
