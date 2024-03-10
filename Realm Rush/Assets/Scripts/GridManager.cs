@@ -24,7 +24,6 @@ public class GridManager : MonoBehaviour
             {
                 Vector2Int coordinate = new Vector2Int(x, y);
                 grid.Add(coordinate, new Node(coordinate, true));
-                Debug.Log(grid[coordinate].coordinate + "=" + grid[coordinate].isWalkable);
             }
         }
     }
@@ -44,6 +43,16 @@ public class GridManager : MonoBehaviour
         if (grid.ContainsKey(coordinate))
         {
             grid[coordinate].isWalkable = false;
+        }
+    }
+
+    public void ResetNodes()
+    {
+        foreach(KeyValuePair<Vector2Int,Node> entry in grid)
+        {
+            entry.Value.connectedTo = null;
+            entry.Value.isExplored = false;
+            entry.Value.isPath = false;
         }
     }
 
