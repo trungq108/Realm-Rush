@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Node
 {
-    public Vector2Int coordinate;
+    public Vector2Int coordinates;
     public bool isWalkable;
     public bool isExplored;
     public bool isPath;
@@ -13,7 +13,7 @@ public class Node
 
     public Node(Vector2Int coordinate, bool isWalkable)
     {
-        this.coordinate = coordinate;
+        this.coordinates = coordinate;
         this.isWalkable = isWalkable;
     }
 }

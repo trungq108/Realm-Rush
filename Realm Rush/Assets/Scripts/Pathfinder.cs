@@ -5,46 +5,48 @@ using UnityEngine.Windows;
 
 public class Pathfinder : MonoBehaviour
 {
-    [SerializeField] Vector2Int startCoordinate;
-    public Vector2Int StartCoordinate { get { return startCoordinate; } }
+    [SerializeField] Vector2Int startCoordinates;
+    public Vector2Int StartCoordinates { get { return startCoordinates; } }
 
-    [SerializeField] Vector2Int destinationCoordinate;
-    public Vector2Int DestinationCoordinate { get { return destinationCoordinate; } }
-
+    [SerializeField] Vector2Int destinationCoordinates;
+    public Vector2Int DestinationCoordinates { get { return destinationCoordinates; } }
 
     Node startNode;
     Node destinationNode;
     Node currentSearchNode;
 
-    Vector2Int[] directions = {Vector2Int.right, Vector2Int.left, Vector2Int.up , Vector2Int.down };
+    Queue<Node> frontier = new Queue<Node>();
+    Dictionary<Vector2Int, Node> reached = new Dictionary<Vector2Int, Node>();
+
+    Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
     GridManager gridManager;
     Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>();
-    Dictionary<Vector2Int, Node> reached = new Dictionary<Vector2Int, Node>();
-    Queue<Node> frontier = new Queue<Node>();
-
 
     void Awake()
     {
         gridManager = FindObjectOfType<GridManager>();
-
-        if (gridManager != null )
+        if (gridManager != null)
         {
             grid = gridManager.Grid;
-            startNode = grid[startCoordinate];
-            destinationNode = grid[destinationCoordinate];
-            
+            startNode = grid[startCoordinates];
+            destinationNode = grid[destinationCoordinates];
         }
     }
 
-    private void Start()
+    void Start()
     {
         GetNewPath();
     }
 
     public List<Node> GetNewPath()
     {
+        return GetNewPath(startCoordinates);
+    }
+
+    public List<Node> GetNewPath(Vector2Int coordinate)
+    {
         gridManager.ResetNodes();
-        BreadthFirstSearch();
+        BreadthFirstSearch(coordinate);
         return BuildPath();
     }
 
@@ -52,27 +54,28 @@ public class Pathfinder : MonoBehaviour
     {
         List<Node> neighbors = new List<Node>();
 
-        foreach(Vector2Int direction in directions)
+        foreach (Vector2Int direction in directions)
         {
-            Vector2Int neighborCoords = currentSearchNode.coordinate + direction;
-            if(grid.ContainsKey(neighborCoords))
+            Vector2Int neighborCoords = currentSearchNode.coordinates + direction;
+
+            if (grid.ContainsKey(neighborCoords))
             {
-                neighbors.Add(grid[neighborCoords]);        
+                neighbors.Add(grid[neighborCoords]);
             }
         }
 
-        foreach(Node neighbor in neighbors)
+        foreach (Node neighbor in neighbors)
         {
-            if(!reached.ContainsKey(neighbor.coordinate) && neighbor.isWalkable)
+            if (!reached.ContainsKey(neighbor.coordinates) && neighbor.isWalkable)
             {
                 neighbor.connectedTo = currentSearchNode;
-                reached.Add(neighbor.coordinate, neighbor);
+                reached.Add(neighbor.coordinates, neighbor);
                 frontier.Enqueue(neighbor);
             }
         }
     }
 
-    void BreadthFirstSearch()
+    void BreadthFirstSearch(Vector2Int coordinate)
     {
         startNode.isWalkable = true;
         destinationNode.isWalkable = true;
@@ -82,55 +85,62 @@ public class Pathfinder : MonoBehaviour
 
         bool isRunning = true;
 
-        frontier.Enqueue(startNode);
-        reached.Add(startCoordinate, startNode);
+        frontier.Enqueue(grid[coordinate]);
+        reached.Add(coordinate, grid[coordinate]);
 
-        while(frontier.Count > 0 && isRunning)
+        while (frontier.Count > 0 && isRunning)
         {
             currentSearchNode = frontier.Dequeue();
             currentSearchNode.isExplored = true;
             ExploreNeighbors();
-            if(currentSearchNode.coordinate == destinationCoordinate)
+            if (currentSearchNode.coordinates == destinationCoordinates)
             {
                 isRunning = false;
             }
         }
     }
 
-    public List<Node> BuildPath()
+    List<Node> BuildPath()
     {
         List<Node> path = new List<Node>();
         Node currentNode = destinationNode;
         path.Add(currentNode);
         currentNode.isPath = true;
 
-        while(currentNode.connectedTo != null)
+        while (currentNode.connectedTo != null)
         {
             currentNode = currentNode.connectedTo;
-            path.Add(currentNode.connectedTo);
+            path.Add(currentNode);
             currentNode.isPath = true;
         }
+
         path.Reverse();
 
         return path;
     }
 
-    public bool WillBlockPath(Vector2Int coordinate)
+    public bool WillBlockPath(Vector2Int coordinates)
     {
-        if(grid.ContainsKey(coordinate))
+        if (grid.ContainsKey(coordinates))
         {
-            bool previousState = grid[coordinate].isWalkable;
+            bool previousState = grid[coordinates].isWalkable;
 
-            grid[coordinate].isWalkable = false;
+            grid[coordinates].isWalkable = false;
             List<Node> newPath = GetNewPath();
-            grid[coordinate].isWalkable = previousState;
+            grid[coordinates].isWalkable = previousState;
 
-            if(newPath.Count <= 1)
+            if (newPath.Count <= 1)
             {
                 GetNewPath();
                 return true;
             }
         }
+
         return false;
+    }
+
+    public void NotifyReceiver()
+    {
+        BroadcastMessage("RecalculatePath",false,SendMessageOptions.DontRequireReceiver);
     }
 }
